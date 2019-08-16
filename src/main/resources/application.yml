@@ -1,0 +1,66 @@
+server:
+  # TODO 端口
+  port: 4725
+  connection-timeout: 20000ms
+  servlet:
+    #TODO 项目根路径
+    context-path: /wisdom21
+
+
+spring:
+  # TODO AOP配置
+  aop:
+    proxy-target-class: true
+    auto: true
+  application:
+    name: wisdom21
+  datasource:
+    ## TODO 多数据源配置
+    druid:
+      db1:
+        url: jdbc:mysql://localhost:3306/test_db1?useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true&rewriteBatchedStatements=TRUE&serverTimezone=GMT
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+      db2:
+        url: jdbc:mysql://localhost:3306/test_db2?useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true&rewriteBatchedStatements=TRUE&serverTimezone=GMT
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+      db3:
+        url: jdbc:mysql://localhost:3306/test_db3?useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true&rewriteBatchedStatements=TRUE&serverTimezone=GMT
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+
+
+# TODO mybatis-plus配置
+mybatis-plus:
+  # TODO *Mapper.xml扫描
+  mapper-locations: classpath:mapper/**/*.xml
+  # TODO 实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: wisdom21.model.system.entity
+  global-config:
+    db-config:
+      id-type: id_worker
+      table-underline: true
+      db-type: mysql
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+    refresh: true
+  configuration:
+    #  查询之后下划线自动转驼峰
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+
+
+
